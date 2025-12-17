@@ -51,7 +51,9 @@ class _HomePageState extends State<HomePage> {
     }
 
     try {
-      final url = Uri.parse('/pais/$nombre');
+      final url = Uri.parse(
+  'https://proyecto-paises.onrender.com/pais/$nombre',
+);
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
