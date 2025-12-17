@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend/api_paises
+    container_name: api-paises
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-paises
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
